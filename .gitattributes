@@ -39,3 +39,4 @@ luna-ai-llama2-uncensored.Q3_K_M.gguf filter=lfs diff=lfs merge=lfs -text
 luna-ai-llama2-uncensored.Q3_K_L.gguf filter=lfs diff=lfs merge=lfs -text
 luna-ai-llama2-uncensored.Q4_0.gguf filter=lfs diff=lfs merge=lfs -text
 luna-ai-llama2-uncensored.Q4_K_S.gguf filter=lfs diff=lfs merge=lfs -text
+luna-ai-llama2-uncensored.Q4_K_M.gguf filter=lfs diff=lfs merge=lfs -text
