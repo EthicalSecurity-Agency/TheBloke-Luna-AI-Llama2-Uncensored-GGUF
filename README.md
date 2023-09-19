@@ -1,10 +1,15 @@
 ---
+base_model: https://huggingface.co/Tap-M/Luna-AI-Llama2-Uncensored
 inference: false
-license: llama2
+license: cc-by-sa-4.0
 model_creator: Tap
-model_link: https://huggingface.co/Tap-M/Luna-AI-Llama2-Uncensored
 model_name: Luna AI Llama2 Uncensored
 model_type: llama
+prompt_template: 'USER: {prompt}
+
+  ASSISTANT:
+
+  '
 quantized_by: TheBloke
 ---
 
@@ -29,25 +34,27 @@ quantized_by: TheBloke
 - Model creator: [Tap](https://huggingface.co/Tap-M)
 - Original model: [Luna AI Llama2 Uncensored](https://huggingface.co/Tap-M/Luna-AI-Llama2-Uncensored)
 
+<!-- description start -->
 ## Description
 
 This repo contains GGUF format model files for [Tap-M's Luna AI Llama2 Uncensored](https://huggingface.co/Tap-M/Luna-AI-Llama2-Uncensored).
 
 Many thanks to William Beauchamp from [Chai](https://chai-research.com/) for providing the hardware used to make and upload these files!
 
+<!-- description end -->
 <!-- README_GGUF.md-about-gguf start -->
 ### About GGUF
 
-GGUF is a new format introduced by the llama.cpp team on August 21st 2023. It is a replacement for GGML, which is no longer supported by llama.cpp.
+GGUF is a new format introduced by the llama.cpp team on August 21st 2023. It is a replacement for GGML, which is no longer supported by llama.cpp. GGUF offers numerous advantages over GGML, such as better tokenisation, and support for special tokens. It is also supports metadata, and is designed to be extensible.
 
-The key benefit of GGUF is that it is a extensible, future-proof format which stores more information about the model as metadata. It also includes significantly improved tokenization code, including for the first time full support for special tokens. This should improve performance, especially with models that use new special tokens and implement custom prompt templates.
+Here is an incomplate list of clients and libraries that are known to support GGUF:
 
-Here are a list of clients and libraries that are known to support GGUF:
-* [llama.cpp](https://github.com/ggerganov/llama.cpp).
-* [text-generation-webui](https://github.com/oobabooga/text-generation-webui), the most widely used web UI, with many features and powerful extensions.
-* [KoboldCpp](https://github.com/LostRuins/koboldcpp), a fully featured web UI, with full GPU accel across multiple platforms and GPU architectures. Especially good for story telling.
-* [LM Studio](https://lmstudio.ai/), an easy-to-use and powerful local GUI with GPU acceleration on both Windows (NVidia and AMD), and macOS.
+* [llama.cpp](https://github.com/ggerganov/llama.cpp). The source project for GGUF. Offers a CLI and a server option.
+* [text-generation-webui](https://github.com/oobabooga/text-generation-webui), the most widely used web UI, with many features and powerful extensions. Supports GPU acceleration.
+* [KoboldCpp](https://github.com/LostRuins/koboldcpp), a fully featured web UI, with GPU accel across all platforms and GPU architectures. Especially good for story telling.
+* [LM Studio](https://lmstudio.ai/), an easy-to-use and powerful local GUI for Windows and macOS (Silicon), with GPU acceleration.
 * [LoLLMS Web UI](https://github.com/ParisNeo/lollms-webui), a great web UI with many interesting and unique features, including a full model library for easy model selection.
+* [Faraday.dev](https://faraday.dev/), an attractive and easy to use character-based chat GUI for Windows and macOS (both Silicon and Intel), with GPU acceleration.
 * [ctransformers](https://github.com/marella/ctransformers), a Python library with GPU accel, LangChain support, and OpenAI-compatible AI server.
 * [llama-cpp-python](https://github.com/abetlen/llama-cpp-python), a Python library with GPU accel, LangChain support, and OpenAI-compatible API server.
 * [candle](https://github.com/huggingface/candle), a Rust ML framework with a focus on performance, including GPU support, and ease of use.
@@ -56,9 +63,9 @@ Here are a list of clients and libraries that are known to support GGUF:
 <!-- repositories-available start -->
 ## Repositories available
 
+* [AWQ model(s) for GPU inference.](https://huggingface.co/TheBloke/Luna-AI-Llama2-Uncensored-AWQ)
 * [GPTQ models for GPU inference, with multiple quantisation parameter options.](https://huggingface.co/TheBloke/Luna-AI-Llama2-Uncensored-GPTQ)
 * [2, 3, 4, 5, 6 and 8-bit GGUF models for CPU+GPU inference](https://huggingface.co/TheBloke/Luna-AI-Llama2-Uncensored-GGUF)
-* [2, 3, 4, 5, 6 and 8-bit GGML models for CPU+GPU inference (deprecated)](https://huggingface.co/TheBloke/Luna-AI-Llama2-Uncensored-GGML)
 * [Tap's original unquantised fp16 model in pytorch format, for GPU inference and for further conversions](https://huggingface.co/Tap-M/Luna-AI-Llama2-Uncensored)
 <!-- repositories-available end -->
 
@@ -72,12 +79,21 @@ ASSISTANT:
 ```
 
 <!-- prompt-template end -->
+<!-- licensing start -->
+## Licensing
+
+The creator of the source model has listed its license as `cc-by-sa-4.0`, and this quantization has therefore used that same license.
+
+As this model is based on Llama 2, it is also subject to the Meta Llama 2 license terms, and the license files for that are additionally included. It should therefore be considered as being claimed to be licensed under both licenses. I contacted Hugging Face for clarification on dual licensing but they do not yet have an official position. Should this change, or should Meta provide any feedback on this situation, I will update this section accordingly.
+
+In the meantime, any questions regarding licensing, and in particular how these two licenses might interact, should be directed to the original model repository: [Tap-M's Luna AI Llama2 Uncensored](https://huggingface.co/Tap-M/Luna-AI-Llama2-Uncensored).
+<!-- licensing end -->
 <!-- compatibility_gguf start -->
 ## Compatibility
 
-These quantised GGUF files are compatible with llama.cpp from August 21st 2023 onwards, as of commit [6381d4e110bd0ec02843a60bbeb8b6fc37a9ace9](https://github.com/ggerganov/llama.cpp/commit/6381d4e110bd0ec02843a60bbeb8b6fc37a9ace9)
+These quantised GGUFv2 files are compatible with llama.cpp from August 27th onwards, as of commit [d0cee0d36d5be95a0d9088b674dbb27354107221](https://github.com/ggerganov/llama.cpp/commit/d0cee0d36d5be95a0d9088b674dbb27354107221)
 
-They are now also compatible with many third party UIs and libraries - please see the list at the top of the README.
+They are also compatible with many third party UIs and libraries - please see the list at the top of this README.
 
 ## Explanation of quantisation methods
 <details>
@@ -118,21 +134,75 @@ Refer to the Provided Files table below to see what files use which methods, and
 
 <!-- README_GGUF.md-provided-files end -->
 
+<!-- README_GGUF.md-how-to-download start -->
+## How to download GGUF files
+
+**Note for manual downloaders:** You almost never want to clone the entire repo! Multiple different quantisation formats are provided, and most users only want to pick and download a single file.
+
+The following clients/libraries will automatically download models for you, providing a list of available models to choose from:
+- LM Studio
+- LoLLMS Web UI
+- Faraday.dev
+
+### In `text-generation-webui`
+
+Under Download Model, you can enter the model repo: TheBloke/Luna-AI-Llama2-Uncensored-GGUF and below it, a specific filename to download, such as: luna-ai-llama2-uncensored.q4_K_M.gguf.
+
+Then click Download.
+
+### On the command line, including multiple files at once
+
+I recommend using the `huggingface-hub` Python library:
+
+```shell
+pip3 install huggingface-hub>=0.17.1
+```
+
+Then you can download any individual model file to the current directory, at high speed, with a command like this:
+
+```shell
+huggingface-cli download TheBloke/Luna-AI-Llama2-Uncensored-GGUF luna-ai-llama2-uncensored.q4_K_M.gguf --local-dir . --local-dir-use-symlinks False
+```
+
+<details>
+  <summary>More advanced huggingface-cli download usage</summary>
+
+You can also download multiple files at once with a pattern:
+
+```shell
+huggingface-cli download TheBloke/Luna-AI-Llama2-Uncensored-GGUF --local-dir . --local-dir-use-symlinks False --include='*Q4_K*gguf'
+```
+
+For more documentation on downloading with `huggingface-cli`, please see: [HF -> Hub Python Library -> Download files -> Download from the CLI](https://huggingface.co/docs/huggingface_hub/guides/download#download-from-the-cli).
+
+To accelerate downloads on fast connections (1Gbit/s or higher), install `hf_transfer`:
+
+```shell
+pip3 install hf_transfer
+```
+
+And set environment variable `HF_HUB_ENABLE_HF_TRANSFER` to `1`:
+
+```shell
+HUGGINGFACE_HUB_ENABLE_HF_TRANSFER=1 huggingface-cli download TheBloke/Luna-AI-Llama2-Uncensored-GGUF luna-ai-llama2-uncensored.q4_K_M.gguf --local-dir . --local-dir-use-symlinks False
+```
+
+Windows CLI users: Use `set HUGGINGFACE_HUB_ENABLE_HF_TRANSFER=1` before running the download command.
+</details>
+<!-- README_GGUF.md-how-to-download end -->
+
 <!-- README_GGUF.md-how-to-run start -->
 ## Example `llama.cpp` command
 
-Make sure you are using `llama.cpp` from commit [6381d4e110bd0ec02843a60bbeb8b6fc37a9ace9](https://github.com/ggerganov/llama.cpp/commit/6381d4e110bd0ec02843a60bbeb8b6fc37a9ace9) or later.
+Make sure you are using `llama.cpp` from commit [d0cee0d36d5be95a0d9088b674dbb27354107221](https://github.com/ggerganov/llama.cpp/commit/d0cee0d36d5be95a0d9088b674dbb27354107221) or later.
 
-For compatibility with older versions of llama.cpp, or for any third-party libraries or clients that haven't yet updated for GGUF, please use GGML files instead.
-
+```shell
+./main -ngl 32 -m luna-ai-llama2-uncensored.q4_K_M.gguf --color -c 4096 --temp 0.7 --repeat_penalty 1.1 -n -1 -p "USER: {prompt}\nASSISTANT:"
 ```
-./main -t 10 -ngl 32 -m luna-ai-llama2-uncensored.q4_K_M.gguf --color -c 4096 --temp 0.7 --repeat_penalty 1.1 -n -1 -p "USER: {prompt}\nASSISTANT:"
-```
-Change `-t 10` to the number of physical CPU cores you have. For example if your system has 8 cores/16 threads, use `-t 8`. If offloading all layers to GPU, set `-t 1`.
 
 Change `-ngl 32` to the number of layers to offload to GPU. Remove it if you don't have GPU acceleration.
 
-Change `-c 4096` to the desired sequence length for this model. For extended sequence models - eg 8K, 16K, 32K - the necessary RoPE scaling parameters are read from the GGUF file and set by llama.cpp automatically.
+Change `-c 4096` to the desired sequence length. For extended sequence models - eg 8K, 16K, 32K - the necessary RoPE scaling parameters are read from the GGUF file and set by llama.cpp automatically.
 
 If you want to have a chat-style conversation, replace the `-p <PROMPT>` argument with `-i -ins`
 
@@ -189,9 +259,11 @@ For further support, and discussions on these models and AI in general, join us 
 
 [TheBloke AI's Discord server](https://discord.gg/theblokeai)
 
-## Thanks, and how to contribute.
+## Thanks, and how to contribute
 
 Thanks to the [chirper.ai](https://chirper.ai) team!
+
+Thanks to Clay from [gpus.llm-utils.org](llm-utils)!
 
 I've had a lot of people ask if they can contribute. I enjoy providing models and helping people, and would love to be able to spend even more time doing it, as well as expanding into new projects like fine tuning/training.
 
@@ -204,7 +276,7 @@ Donaters will get priority support on any and all AI/LLM/model questions and req
 
 **Special thanks to**: Aemon Algiz.
 
-**Patreon special mentions**: Russ Johnson, J, alfie_i, Alex, NimbleBox.ai, Chadd, Mandus, Nikolai Manek, Ken Nordquist, ya boyyy, Illia Dulskyi, Viktor Bowallius, vamX, Iucharbius, zynix, Magnesian, Clay Pascal, Pierre Kircher, Enrico Ros, Tony Hughes, Elle, Andrey, knownsqashed, Deep Realms, Jerry Meng, Lone Striker, Derek Yates, Pyrater, Mesiah Bishop, James Bentley, Femi Adebogun, Brandon Frisco, SuperWojo, Alps Aficionado, Michael Dempsey, Vitor Caleffi, Will Dee, Edmond Seymore, usrbinkat, LangChain4j, Kacper Wikieł, Luke Pendergrass, John Detwiler, theTransient, Nathan LeClaire, Tiffany J. Kim, biorpg, Eugene Pentland, Stanislav Ovsiannikov, Fred von Graf, terasurfer, Kalila, Dan Guido, Nitin Borwankar, 阿明, Ai Maven, John Villwock, Gabriel Puliatti, Stephen Murray, Asp the Wyvern, danny, Chris Smitley, ReadyPlayerEmma, S_X, Daniel P. Andersen, Olakabola, Jeffrey Morgan, Imad Khwaja, Caitlyn Gatomon, webtim, Alicia Loh, Trenton Dambrowitz, Swaroop Kallakuri, Erik Bjäreholt, Leonard Tan, Spiking Neurons AB, Luke @flexchar, Ajan Kanaga, Thomas Belote, Deo Leter, RoA, Willem Michiel, transmissions 11, subjectnull, Matthew Berman, Joseph William Delisle, David Ziegler, Michael Davis, Johann-Peter Hartmann, Talal Aujan, senxiiz, Artur Olbinski, Rainer Wilmers, Spencer Kim, Fen Risland, Cap'n Zoog, Rishabh Srivastava, Michael Levine, Geoffrey Montalvo, Sean Connelly, Alexandros Triantafyllidis, Pieter, Gabriel Tamborski, Sam, Subspace Studios, Junyu Yang, Pedro Madruga, Vadim, Cory Kujawski, K, Raven Klaugh, Randy H, Mano Prime, Sebastain Graf, Space Cruiser
+**Patreon special mentions**: Alicia Loh, Stephen Murray, K, Ajan Kanaga, RoA, Magnesian, Deo Leter, Olakabola, Eugene Pentland, zynix, Deep Realms, Raymond Fosdick, Elijah Stavena, Iucharbius, Erik Bjäreholt, Luis Javier Navarrete Lozano, Nicholas, theTransient, John Detwiler, alfie_i, knownsqashed, Mano Prime, Willem Michiel, Enrico Ros, LangChain4j, OG, Michael Dempsey, Pierre Kircher, Pedro Madruga, James Bentley, Thomas Belote, Luke @flexchar, Leonard Tan, Johann-Peter Hartmann, Illia Dulskyi, Fen Risland, Chadd, S_X, Jeff Scroggin, Ken Nordquist, Sean Connelly, Artur Olbinski, Swaroop Kallakuri, Jack West, Ai Maven, David Ziegler, Russ Johnson, transmissions 11, John Villwock, Alps Aficionado, Clay Pascal, Viktor Bowallius, Subspace Studios, Rainer Wilmers, Trenton Dambrowitz, vamX, Michael Levine, 준교 김, Brandon Frisco, Kalila, Trailburnt, Randy H, Talal Aujan, Nathan Dryer, Vadim, 阿明, ReadyPlayerEmma, Tiffany J. Kim, George Stoitzev, Spencer Kim, Jerry Meng, Gabriel Tamborski, Cory Kujawski, Jeffrey Morgan, Spiking Neurons AB, Edmond Seymore, Alexandros Triantafyllidis, Lone Striker, Cap'n Zoog, Nikolai Manek, danny, ya boyyy, Derek Yates, usrbinkat, Mandus, TL, Nathan LeClaire, subjectnull, Imad Khwaja, webtim, Raven Klaugh, Asp the Wyvern, Gabriel Puliatti, Caitlyn Gatomon, Joseph William Delisle, Jonathan Leane, Luke Pendergrass, SuperWojo, Sebastain Graf, Will Dee, Fred von Graf, Andrey, Dan Guido, Daniel P. Andersen, Nitin Borwankar, Elle, Vitor Caleffi, biorpg, jjj, NimbleBox.ai, Pieter, Matthew Berman, terasurfer, Michael Davis, Alex, Stanislav Ovsiannikov
 
 
 Thank you to all my generous patrons and donaters!
