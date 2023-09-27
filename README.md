@@ -1,9 +1,9 @@
 ---
-base_model: https://huggingface.co/Tap-M/Luna-AI-Llama2-Uncensored
-inference: false
 license: cc-by-sa-4.0
-model_creator: Tap
 model_name: Luna AI Llama2 Uncensored
+base_model: Tap-M/Luna-AI-Llama2-Uncensored
+inference: false
+model_creator: Tap
 model_type: llama
 prompt_template: 'USER: {prompt}
 
